@@ -1,0 +1,14 @@
+# 原始数据与处理后的数据
+data/
+
+# 训练输出与模型权重
+runs/
+*.pt
+*.safetensors
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# 本地密钥配置
+.env
