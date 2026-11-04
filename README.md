@@ -23,18 +23,15 @@
 
 
 5，并排展示与方案对比
-![[0a4f8205a3b58e70eec99fbbb9422d08.jpg|380]]
+![[0a4f8205a3b58e70eec99fbbb9422d08.jpg|380]]![0a4f8205a3b58e70eec99fbbb9422d08.jpg](data/yolo/images/test/0a4f8205a3b58e70eec99fbbb9422d08.jpg)
 
 + YOLO
-![[detection.jpg|327]]
-![[overall_palette.png]]
-![[analysis.txt]]
-
-
+![detection.jpg](runs/color_analysis/0a4f8205a3b58e70eec99fbbb9422d08/detection.jpg)
+[analysis.txt](runs/color_analysis/0a4f8205a3b58e70eec99fbbb9422d08/analysis.txt)
+![overall_palette.png](runs/color_analysis/0a4f8205a3b58e70eec99fbbb9422d08/overall_palette.png)
 
 + 大模型
-![[analysis 1.txt]]
-
+[analysis.txt](runs/doubao/0a4f8205a3b58e70eec99fbbb9422d08/analysis.txt)
 
 
 + 对比
