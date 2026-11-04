@@ -13,7 +13,22 @@ PROJECT_DIR = Path(r"D:\考核2\outfit-analyzer")
 GARMENT_IDS = set(range(13))
 NEUTRAL_NAMES = {"黑色", "白色", "灰色"}
 
-
+def create_output_dir(base_dir):
+    base_dir=Path(base_dir)
+    if not base_dir.exists():
+        base_dir.mkdir(parents=True,exist_ok=False)
+        return base_dir
+    run_number=2
+    while True:
+        output_dir=base_dir.parent/f"{base_dir.name}_{run_number}"
+        try :
+            output_dir.mkdir()
+        except FileExistsError:
+            # 这个编号已经存在，继续检查下一个编号
+            run_number += 1
+        else:
+            # 目录创建成功，返回本次保存位置
+            return output_dir
 def inner_box(bbox, width, height):
     ##限制坐标，并向内收缩边缘的5%
     x1, y1, x2, y2 = bbox
@@ -202,7 +217,12 @@ def predicted_image(image_file, output_dir=None, device=0):
         raise FileNotFoundError(f"找不到图片：{image_file}")
     if not weight_file.is_file():
         raise FileNotFoundError(f"找不到模型：{weight_file}")
-    output_dir = Path(output_dir) if output_dir is not None else PROJECT_DIR / "runs" / "color_analysis" / image_file.stem
+    if output_dir is None:
+        base_dir = PROJECT_DIR / "runs" / "color_analysis" / image_file.stem
+    else:
+        base_dir = Path(output_dir)
+    output_dir = create_output_dir(base_dir)
+    print(f"本次结果目录：{output_dir}")
     model = YOLO(str(weight_file))
     result = model.predict(source=str(image_file), imgsz=960, conf=0.25, device=device, save=False, verbose=False)[0]
     original = result.orig_img

@@ -10,7 +10,22 @@ from dotenv import load_dotenv
 
 
 PROJECT_DIR = Path(r"D:\考核2\outfit-analyzer")
-
+def create_output_dir(base_dir):
+    base_dir=Path(base_dir)
+    if not base_dir.exists():
+        base_dir.mkdir(parents=True,exist_ok=False)
+        return base_dir
+    run_number=2
+    while True:
+        output_dir=base_dir.parent/f"{base_dir.name}_{run_number}"
+        try :
+            output_dir.mkdir()
+        except FileExistsError:
+            # 这个编号已经存在，继续检查下一个编号
+            run_number += 1
+        else:
+            # 目录创建成功，返回本次保存位置
+            return output_dir
 PROMPT = """请分析这张穿搭照片，用中文给出以下内容：
 一、服饰清单：区分完整衣物、配饰和服装部件，不要将袖子等重复计为完整衣物。
 二、逐件颜色：说明每件衣物的主要颜色、可见图案和位置。
@@ -24,6 +39,10 @@ PROMPT = """请分析这张穿搭照片，用中文给出以下内容：
 
 
 def analyze_outfit(image_file):
+    image_file = Path(image_file)
+    base_dir = PROJECT_DIR / "runs" / "doubao" / image_file.stem
+    output_dir = create_output_dir(base_dir)
+    print(f"本次结果目录：{output_dir}")
     ##读取项目密钥配置
     load_dotenv(PROJECT_DIR / ".env", override=True)
     api_key = os.getenv("ARK_API_KEY", "").strip()
@@ -103,8 +122,6 @@ def analyze_outfit(image_file):
     finish_reason = choice.get("finish_reason")
 
     ##保存报告，以及后续方案对比需要的耗时和用量
-    output_dir = PROJECT_DIR / "runs" / "doubao" / image_file.stem
-    output_dir.mkdir(parents=True, exist_ok=True)
     (output_dir / "analysis.txt").write_text(answer, encoding="utf-8")
     record = {
         "image": str(image_file.resolve()),
