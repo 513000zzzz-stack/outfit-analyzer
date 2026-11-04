@@ -3,8 +3,10 @@
 1，处理数据集，使之符合YOLO的训练数据集的处理要求
     数据集来源：[cvdfoundation/fashionpedia](https://github.com/cvdfoundation/fashionpedia#annotation-format)
     主要使用数据集中关于服饰类别和服饰位置标注的内容
+
 2，使用YOLO26n,加载预训练权重，训练YOLO,最多训练150次，40次权重数据没变化后即停止
     由于时间限制和条件限制，只训练了28次，最好轮次为
+
 3，颜色分析
 根据 YOLO 检测框，从原始照片中取得目标区域，再进行颜色分析。
 使用 NumPy 完成区域裁剪、像素采样、数组筛选和比例统计；使用 OpenCV 将 BGR 像素转换为 HSV，根据色相、饱和度和明亮程度划分基础颜色，再通过 Lab 空间选择各颜色组的代表像素。
