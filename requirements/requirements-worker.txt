@@ -1,0 +1,5 @@
+-r requirements.txt
+ultralytics==8.4.198
+opencv-python>=4.10,<6
+numpy>=1.26,<3
+python-dotenv>=1.0,<2

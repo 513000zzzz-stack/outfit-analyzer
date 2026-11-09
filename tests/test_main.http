@@ -1,0 +1,70 @@
+# 指向可以直接访问的 FastAPI。nginx 的 8080 也把 /api/ 和 /browser-auth/ 转给 FastAPI。
+@baseUrl = http://127.0.0.1:8000
+@username = outfit_demo
+@password = local-demo-password
+
+### 1. 服务状态
+GET {{baseUrl}}/api/health
+
+### 2. 注册（首次执行；已有同名账号时可直接执行下一步）
+POST {{baseUrl}}/api/user/register
+Content-Type: application/json
+
+{"username":"{{username}}","password":"{{password}}"}
+
+### 3. 登录并保存后续请求用的 JWT
+POST {{baseUrl}}/api/user/login
+Content-Type: application/json
+
+{"username":"{{username}}","password":"{{password}}"}
+
+> {%
+if (response.status === 200) {
+    client.global.set("outfitToken", response.body.data.token);
+}
+%}
+
+### 4. 当前账号
+GET {{baseUrl}}/api/user/info
+Authorization: Bearer {{outfitToken}}
+
+### 5. 分页历史
+GET {{baseUrl}}/api/analysis/list?page=1&pageSize=20
+Authorization: Bearer {{outfitToken}}
+
+### 6. 上传（先把有权使用的 outfit.jpg 放到本文件旁边，或修改下面路径）
+POST {{baseUrl}}/api/analysis/create
+Authorization: Bearer {{outfitToken}}
+Content-Type: multipart/form-data; boundary=OutfitUploadBoundary
+
+--OutfitUploadBoundary
+Content-Disposition: form-data; name="image"; filename="outfit.jpg"
+Content-Type: image/jpeg
+
+< ./outfit.jpg
+--OutfitUploadBoundary--
+
+> {%
+if (response.status === 202) {
+    client.global.set("outfitAnalysisId", response.body.data.id);
+}
+%}
+
+### 7. 查询上传任务
+GET {{baseUrl}}/api/analysis/detail/{{outfitAnalysisId}}
+Authorization: Bearer {{outfitToken}}
+
+### 8. 更新备注
+PUT {{baseUrl}}/api/analysis/note/{{outfitAnalysisId}}
+Authorization: Bearer {{outfitToken}}
+Content-Type: application/json
+
+{"note":"对照检测框和豆包描述"}
+
+### 9. 分页校验（应返回 HTTP 422）
+GET {{baseUrl}}/api/analysis/list?pageSize=101
+Authorization: Bearer {{outfitToken}}
+
+### 10. 删除记录（任务结束后执行）
+DELETE {{baseUrl}}/api/analysis/delete/{{outfitAnalysisId}}
+Authorization: Bearer {{outfitToken}}

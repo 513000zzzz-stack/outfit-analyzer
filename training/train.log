@@ -1,0 +1,268 @@
+2026-11-05 14:25:08,715 - INFO - [34m[1mengine\trainer: [0magnostic_nms=False, amp=True, angle=1.0, augment=False, auto_augment=randaugment, batch=-1, bgr=0.0, box=7.5, cache=False, cfg=None, channels_last=None, classes=None, close_mosaic=15, cls=0.5, cls_pw=0.0, cls_remap=True, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=D:\øº∫À2\outfit-analyzer\data\yolo\data.yaml, degrees=0.0, deterministic=True, device=0, dfl=1.5, dgrad=0.5, dis=6.0, distill_model=None, dlam=1.0, dlog=1.0, dnn=False, dropout=0.0, dynamic=False, embed=None, epochs=3, erasing=0.4, exist_ok=False, fliplr=0.5, flipud=0.0, format=torchscript, fraction=1.0, freeze=None, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, imgsz=960, iou=0.7, kobj=1.0, line_width=None, lr0=0.001, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=D:\øº∫À2\outfit-analyzer\yolo26n.pt, momentum=0.937, mosaic=1.0, multi_scale=0.0, name=fashion_yolo26n-5, nbs=64, nms=None, opset=None, optimize=False, optimizer=auto, overlap_mask=True, patience=1, perspective=0.0, plots=True, pose=12.0, pretrained=True, profile=False, project=D:\øº∫À2\outfit-analyzer\runs\detect, quantize=None, rect=False, resume=False, retina_masks=False, rle=1.0, save=True, save_conf=False, save_crop=False, save_dir=D:\øº∫À2\outfit-analyzer\runs\detect\fashion_yolo26n-5, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=42, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=tracktrack.yaml, translate=0.1, val=True, verbose=True, vid_stride=1, visualize=False, warmup_bias_lr=0.1, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=4, workspace=None
+2026-11-05 14:25:08,772 - INFO - Overriding model.yaml nc=80 with nc=46
+2026-11-05 14:25:08,773 - INFO - 
+                   from  n    params  module                                       arguments                     
+2026-11-05 14:25:08,786 - INFO -   0                  -1  1       464  ultralytics.nn.modules.conv.Conv             [3, 16, 3, 2]                 
+2026-11-05 14:25:08,786 - INFO -   1                  -1  1      4672  ultralytics.nn.modules.conv.Conv             [16, 32, 3, 2]                
+2026-11-05 14:25:08,788 - INFO -   2                  -1  1      6640  ultralytics.nn.modules.block.C3k2            [32, 64, 1, False, 0.25]      
+2026-11-05 14:25:08,789 - INFO -   3                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+2026-11-05 14:25:08,790 - INFO -   4                  -1  1     26080  ultralytics.nn.modules.block.C3k2            [64, 128, 1, False, 0.25]     
+2026-11-05 14:25:08,791 - INFO -   5                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+2026-11-05 14:25:08,795 - INFO -   6                  -1  1     87040  ultralytics.nn.modules.block.C3k2            [128, 128, 1, True]           
+2026-11-05 14:25:08,797 - INFO -   7                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]              
+2026-11-05 14:25:08,802 - INFO -   8                  -1  1    346112  ultralytics.nn.modules.block.C3k2            [256, 256, 1, True]           
+2026-11-05 14:25:08,803 - INFO -   9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5, 3, True]        
+2026-11-05 14:25:08,805 - INFO -  10                  -1  1    249728  ultralytics.nn.modules.block.C2PSA           [256, 256, 1]                 
+2026-11-05 14:25:08,806 - INFO -  11                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+2026-11-05 14:25:08,806 - INFO -  12             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+2026-11-05 14:25:08,809 - INFO -  13                  -1  1    119808  ultralytics.nn.modules.block.C3k2            [384, 128, 1, True]           
+2026-11-05 14:25:08,809 - INFO -  14                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+2026-11-05 14:25:08,809 - INFO -  15             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+2026-11-05 14:25:08,811 - INFO -  16                  -1  1     34304  ultralytics.nn.modules.block.C3k2            [256, 64, 1, True]            
+2026-11-05 14:25:08,811 - INFO -  17                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+2026-11-05 14:25:08,812 - INFO -  18            [-1, 13]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+2026-11-05 14:25:08,814 - INFO -  19                  -1  1     95232  ultralytics.nn.modules.block.C3k2            [192, 128, 1, True]           
+2026-11-05 14:25:08,815 - INFO -  20                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+2026-11-05 14:25:08,815 - INFO -  21            [-1, 10]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+2026-11-05 14:25:08,820 - INFO -  22                  -1  1    463104  ultralytics.nn.modules.block.C3k2            [384, 256, 1, True, 0.5, True]
+2026-11-05 14:25:08,833 - INFO -  23        [16, 19, 22]  1    259116  ultralytics.nn.modules.head.Detect           [46, 1, True, [64, 128, 256]] 
+2026-11-05 14:25:09,156 - INFO - YOLO26n summary: 260 layers, 2,521,740 parameters, 2,521,740 gradients, 6.0 GFLOPs
+2026-11-05 14:25:09,156 - INFO - 
+2026-11-05 14:25:09,178 - INFO - Remapped 2/46 cls head rows from pretrained weights by class name
+2026-11-05 14:25:09,196 - INFO - Transferred 708/708 items from pretrained weights
+2026-11-05 14:25:09,407 - INFO - [34m[1mAMP: [0mrunning Automatic Mixed Precision (AMP) checks...
+2026-11-05 14:25:11,080 - WARNING - WARNING [34m[1mtrain: [0mSlow image access detected (ping: 0.5°¿0.1 ms, read: 7.6°¿1.8 MB/s, size: 67.1 KB). Use local storage instead of remote/mounted storage for better performance. See https://docs.ultralytics.com/guides/model-training-tips
+2026-11-05 14:25:20,976 - INFO - [34m[1mAutoBatch: [0mComputing optimal batch size for imgsz=960 at 60.0% GPU memory utilization.
+2026-11-05 14:25:20,977 - INFO - [34m[1mAutoBatch: [0mCUDA:0 (NVIDIA GeForce RTX 5060 Laptop GPU) 7.96G total, 0.12G reserved, 6.76G available
+2026-11-05 14:25:20,977 - INFO -       Params      GFLOPs GPU_mem (GiB)  forward (ms) backward (ms)                   input                  output
+2026-11-05 14:25:21,845 - INFO -      2555756       14.18         0.609           229           418        (1, 3, 960, 960)                    list
+2026-11-05 14:25:22,251 - INFO -      2555756       28.36         1.175         103.4         209.4        (2, 3, 960, 960)                    list
+2026-11-05 14:25:22,644 - INFO -      2555756       56.72         2.329         136.7         159.4        (4, 3, 960, 960)                    list
+2026-11-05 14:25:23,034 - INFO -      2555756       113.4         4.575         98.84         169.5        (8, 3, 960, 960)                    list
+2026-11-05 14:25:44,236 - INFO - [34m[1mengine\trainer: [0magnostic_nms=False, amp=True, angle=1.0, augment=False, auto_augment=randaugment, batch=-1, bgr=0.0, box=7.5, cache=False, cfg=None, channels_last=None, classes=None, close_mosaic=15, cls=0.5, cls_pw=0.0, cls_remap=True, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=D:\øº∫À2\outfit-analyzer\data\yolo\data.yaml, degrees=0.0, deterministic=True, device=0, dfl=1.5, dgrad=0.5, dis=6.0, distill_model=None, dlam=1.0, dlog=1.0, dnn=False, dropout=0.0, dynamic=False, embed=None, epochs=1, erasing=0.4, exist_ok=False, fliplr=0.5, flipud=0.0, format=torchscript, fraction=1.0, freeze=None, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, imgsz=960, iou=0.7, kobj=1.0, line_width=None, lr0=0.001, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=D:\øº∫À2\outfit-analyzer\yolo26n.pt, momentum=0.937, mosaic=1.0, multi_scale=0.0, name=fashion_yolo26n-6, nbs=64, nms=None, opset=None, optimize=False, optimizer=auto, overlap_mask=True, patience=1, perspective=0.0, plots=True, pose=12.0, pretrained=True, profile=False, project=D:\øº∫À2\outfit-analyzer\runs\detect, quantize=None, rect=False, resume=False, retina_masks=False, rle=1.0, save=True, save_conf=False, save_crop=False, save_dir=D:\øº∫À2\outfit-analyzer\runs\detect\fashion_yolo26n-6, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=42, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=tracktrack.yaml, translate=0.1, val=True, verbose=True, vid_stride=1, visualize=False, warmup_bias_lr=0.1, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=4, workspace=None
+2026-11-05 14:25:44,280 - INFO - Overriding model.yaml nc=80 with nc=46
+2026-11-05 14:25:44,281 - INFO - 
+                   from  n    params  module                                       arguments                     
+2026-11-05 14:25:44,282 - INFO -   0                  -1  1       464  ultralytics.nn.modules.conv.Conv             [3, 16, 3, 2]                 
+2026-11-05 14:25:44,283 - INFO -   1                  -1  1      4672  ultralytics.nn.modules.conv.Conv             [16, 32, 3, 2]                
+2026-11-05 14:25:44,284 - INFO -   2                  -1  1      6640  ultralytics.nn.modules.block.C3k2            [32, 64, 1, False, 0.25]      
+2026-11-05 14:25:44,285 - INFO -   3                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+2026-11-05 14:25:44,286 - INFO -   4                  -1  1     26080  ultralytics.nn.modules.block.C3k2            [64, 128, 1, False, 0.25]     
+2026-11-05 14:25:44,287 - INFO -   5                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+2026-11-05 14:25:44,292 - INFO -   6                  -1  1     87040  ultralytics.nn.modules.block.C3k2            [128, 128, 1, True]           
+2026-11-05 14:25:44,293 - INFO -   7                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]              
+2026-11-05 14:25:44,298 - INFO -   8                  -1  1    346112  ultralytics.nn.modules.block.C3k2            [256, 256, 1, True]           
+2026-11-05 14:25:44,298 - INFO -   9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5, 3, True]        
+2026-11-05 14:25:44,300 - INFO -  10                  -1  1    249728  ultralytics.nn.modules.block.C2PSA           [256, 256, 1]                 
+2026-11-05 14:25:44,300 - INFO -  11                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+2026-11-05 14:25:44,300 - INFO -  12             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+2026-11-05 14:25:44,303 - INFO -  13                  -1  1    119808  ultralytics.nn.modules.block.C3k2            [384, 128, 1, True]           
+2026-11-05 14:25:44,303 - INFO -  14                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+2026-11-05 14:25:44,303 - INFO -  15             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+2026-11-05 14:25:44,306 - INFO -  16                  -1  1     34304  ultralytics.nn.modules.block.C3k2            [256, 64, 1, True]            
+2026-11-05 14:25:44,306 - INFO -  17                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+2026-11-05 14:25:44,306 - INFO -  18            [-1, 13]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+2026-11-05 14:25:44,308 - INFO -  19                  -1  1     95232  ultralytics.nn.modules.block.C3k2            [192, 128, 1, True]           
+2026-11-05 14:25:44,309 - INFO -  20                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+2026-11-05 14:25:44,309 - INFO -  21            [-1, 10]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+2026-11-05 14:25:44,313 - INFO -  22                  -1  1    463104  ultralytics.nn.modules.block.C3k2            [384, 256, 1, True, 0.5, True]
+2026-11-05 14:25:44,323 - INFO -  23        [16, 19, 22]  1    259116  ultralytics.nn.modules.head.Detect           [46, 1, True, [64, 128, 256]] 
+2026-11-05 14:25:44,601 - INFO - YOLO26n summary: 260 layers, 2,521,740 parameters, 2,521,740 gradients, 6.0 GFLOPs
+2026-11-05 14:25:44,601 - INFO - 
+2026-11-05 14:25:44,632 - INFO - Remapped 2/46 cls head rows from pretrained weights by class name
+2026-11-05 14:25:44,676 - INFO - Transferred 708/708 items from pretrained weights
+2026-11-05 14:25:44,800 - INFO - [34m[1mAMP: [0mrunning Automatic Mixed Precision (AMP) checks...
+2026-11-05 14:25:53,167 - INFO - [34m[1mAutoBatch: [0mComputing optimal batch size for imgsz=960 at 60.0% GPU memory utilization.
+2026-11-05 14:25:53,168 - INFO - [34m[1mAutoBatch: [0mCUDA:0 (NVIDIA GeForce RTX 5060 Laptop GPU) 7.96G total, 0.12G reserved, 6.76G available
+2026-11-05 14:25:53,168 - INFO -       Params      GFLOPs GPU_mem (GiB)  forward (ms) backward (ms)                   input                  output
+2026-11-05 14:25:53,797 - INFO -      2555756       14.18         0.609         128.3         323.5        (1, 3, 960, 960)                    list
+2026-11-05 14:25:54,211 - INFO -      2555756       28.36         1.175         129.6         176.3        (2, 3, 960, 960)                    list
+2026-11-05 14:25:54,701 - INFO -      2555756       56.72         2.329         161.8         157.9        (4, 3, 960, 960)                    list
+2026-11-05 14:25:55,101 - INFO -      2555756       113.4         4.575         111.1         151.3        (8, 3, 960, 960)                    list
+2026-11-05 14:25:57,392 - INFO -      2555756       226.9         9.259         116.5          1974       (16, 3, 960, 960)                    list
+2026-11-05 14:25:57,798 - WARNING - WARNING [34m[1mtrain: [0mSlow image access detected (ping: 0.1°¿0.0 ms, read: 10.5°¿3.9 MB/s, size: 70.1 KB). Use local storage instead of remote/mounted storage for better performance. See https://docs.ultralytics.com/guides/model-training-tips
+2026-11-05 14:26:08,350 - INFO - [34m[1moptimizer:[0m 'optimizer=auto' found, ignoring 'lr0=0.001' and determining best 'optimizer' and 'lr0' automatically... 
+2026-11-05 14:26:11,306 - INFO - [34m[1moptimizer:[0m AdamW(lr=0.0002, momentum=0.9) with parameter groups 114 weight(decay=0.0), 126 weight(decay=0.0004921875), 126 bias(decay=0.0)
+2026-11-05 14:26:12,893 - INFO - Plotting labels to D:\øº∫À2\outfit-analyzer\runs\detect\fashion_yolo26n-6\labels.jpg... 
+2026-11-05 14:26:13,424 - INFO - Using 45623 train, 1158 val images for fraction=1.0 at imgsz=960
+Using 4 dataloader workers
+Logging results to [1mD:\øº∫À2\outfit-analyzer\runs\detect\fashion_yolo26n-6[0m
+Starting training for 1 epochs...
+2026-11-05 14:26:13,429 - INFO - Closing dataloader mosaic
+2026-11-05 14:26:32,272 - INFO - 
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+2026-11-05 14:40:11,518 - INFO -                    all       1158       8781      0.541      0.318      0.316      0.222
+2026-11-05 14:40:12,288 - INFO - 
+1 epochs completed in 0.233 hours.
+2026-11-05 14:40:13,446 - INFO - Optimizer stripped from D:\øº∫À2\outfit-analyzer\runs\detect\fashion_yolo26n-6\weights\last.pt, 5.5MB
+2026-11-05 14:40:13,600 - INFO - Optimizer stripped from D:\øº∫À2\outfit-analyzer\runs\detect\fashion_yolo26n-6\weights\best.pt, 5.5MB
+2026-11-05 14:40:13,601 - INFO - 
+Validating D:\øº∫À2\outfit-analyzer\runs\detect\fashion_yolo26n-6\weights\best.pt...
+2026-11-05 14:40:14,048 - INFO - YOLO26n summary (fused): 121 layers, 2,400,670 parameters, 0 gradients, 5.4 GFLOPs
+2026-11-05 14:40:22,583 - INFO -                    all       1158       8781       0.53      0.321      0.315      0.222
+2026-11-05 14:40:22,584 - INFO -          shirt, blouse        102        102      0.331      0.225      0.239      0.166
+2026-11-05 14:40:22,584 - INFO - top, t-shirt, sweatshirt        463        477      0.572      0.679      0.658      0.488
+2026-11-05 14:40:22,584 - INFO -                sweater         21         21          0          0     0.0525     0.0439
+2026-11-05 14:40:22,584 - INFO -               cardigan         12         12          0          0     0.0316      0.019
+2026-11-05 14:40:22,584 - INFO -                 jacket        179        183      0.461      0.858      0.655       0.55
+2026-11-05 14:40:22,584 - INFO -                   vest         21         22          1          0     0.0701     0.0552
+2026-11-05 14:40:22,584 - INFO -                  pants        313        314       0.64      0.863      0.863      0.719
+2026-11-05 14:40:22,584 - INFO -                 shorts        106        106      0.584       0.66      0.668      0.527
+2026-11-05 14:40:22,584 - INFO -                  skirt        162        162      0.426      0.716      0.577      0.507
+2026-11-05 14:40:22,584 - INFO -                   coat        103        104      0.386      0.702       0.56      0.456
+2026-11-05 14:40:22,584 - INFO -                  dress        506        508      0.697      0.909      0.904      0.734
+2026-11-05 14:40:22,584 - INFO -               jumpsuit         21         21      0.276      0.143     0.0964     0.0582
+2026-11-05 14:40:22,584 - INFO -                   cape          5          5          1          0     0.0229     0.0176
+2026-11-05 14:40:22,584 - INFO -                glasses        130        130      0.752      0.815      0.834      0.549
+2026-11-05 14:40:22,584 - INFO -                    hat         74         74      0.533      0.797      0.752      0.585
+2026-11-05 14:40:22,585 - INFO - headband, head covering, hair accessory        105        109       0.46      0.156      0.225      0.117
+2026-11-05 14:40:22,585 - INFO -                    tie          3          3      0.303          1      0.753      0.297
+2026-11-05 14:40:22,585 - INFO -                  glove         18         31       0.23     0.0645      0.139      0.114
+2026-11-05 14:40:22,585 - INFO -                  watch         82         84      0.603      0.326      0.348      0.191
+2026-11-05 14:40:22,585 - INFO -                   belt        159        164      0.501      0.335      0.329      0.183
+2026-11-05 14:40:22,585 - INFO -             leg warmer          7         14          0          0          0          0
+2026-11-05 14:40:22,585 - INFO -      tights, stockings         62        122      0.447      0.541      0.506      0.358
+2026-11-05 14:40:22,585 - INFO -                   sock         51         87       0.78      0.103      0.168     0.0964
+2026-11-05 14:40:22,585 - INFO -                   shoe        804       1566      0.688      0.859      0.871      0.626
+2026-11-05 14:40:22,585 - INFO -            bag, wallet        205        214      0.388      0.495      0.409      0.246
+2026-11-05 14:40:22,585 - INFO -                  scarf         48         48          1          0     0.0755     0.0409
+2026-11-05 14:40:22,585 - INFO -               umbrella          5          5      0.786      0.744      0.715      0.651
+2026-11-05 14:40:22,585 - INFO -                   hood         32         32      0.207     0.0312     0.0651     0.0396
+2026-11-05 14:40:22,585 - INFO -                 collar        208        218      0.385      0.472        0.4       0.23
+2026-11-05 14:40:22,585 - INFO -                  lapel        132        135      0.445      0.437      0.396      0.219
+2026-11-05 14:40:22,585 - INFO -              epaulette          7         14          1          0      0.117     0.0664
+2026-11-05 14:40:22,585 - INFO -                 sleeve        742       1442      0.698      0.816      0.829      0.584
+2026-11-05 14:40:22,585 - INFO -                 pocket        288        541      0.374      0.196      0.181     0.0907
+2026-11-05 14:40:22,585 - INFO -               neckline        895        929      0.518      0.587      0.568      0.314
+2026-11-05 14:40:22,585 - INFO -                 buckle         64         67      0.291      0.164      0.179     0.0938
+2026-11-05 14:40:22,585 - INFO -                 zipper        105        194      0.261     0.0206      0.031     0.0104
+2026-11-05 14:40:22,585 - INFO -               applique         28         61      0.219     0.0164     0.0272     0.0175
+2026-11-05 14:40:22,585 - INFO -                   bead         33        107      0.142     0.0374     0.0248     0.0129
+2026-11-05 14:40:22,585 - INFO -                    bow          5          6          1          0          0          0
+2026-11-05 14:40:22,585 - INFO -                 flower          6         37          1          0   0.000222   0.000156
+2026-11-05 14:40:22,585 - INFO -                 fringe         11         30          1          0   0.000686   0.000618
+2026-11-05 14:40:22,585 - INFO -                 ribbon          5          9          1          0          0          0
+2026-11-05 14:40:22,586 - INFO -                  rivet         55        143          1          0          0          0
+2026-11-05 14:40:22,586 - INFO -                 ruffle         59         76          0          0      0.059     0.0376
+2026-11-05 14:40:22,586 - INFO -                 sequin          7         13          1          0      0.107     0.0862
+2026-11-05 14:40:22,586 - INFO -                 tassel          7         39          0          0          0          0
+2026-11-05 14:40:22,586 - INFO - Speed: 0.3ms preprocess, 2.1ms inference, 0.0ms loss, 1.0ms postprocess per image
+2026-11-05 14:40:22,586 - INFO - Results saved to [1mD:\øº∫À2\outfit-analyzer\runs\detect\fashion_yolo26n-6[0m
+2026-11-05 14:50:39,181 - INFO - ==========Êú¨Ê¨°ËÆ≠ÁªÉÊó•ÂøóÂºÄÂßã==========
+2026-11-05 14:50:39,182 - INFO - Êó•Âøó‰øùÂ≠ò‰ΩçÁΩÆÔºöD:\ËÄÉÊ†∏2\outfit-analyzer\train.log
+2026-11-05 14:50:40,070 - INFO - New https://pypi.org/project/ultralytics/8.4.202 available üòÉ Update with 'pip install -U ultralytics'
+2026-11-05 14:50:40,071 - INFO - Ultralytics 8.4.198 üöÄ Python-3.11.18 torch-2.7.1+cu128 CUDA:0 (NVIDIA GeForce RTX 5060 Laptop GPU, 8151MiB)
+2026-11-05 14:50:40,147 - INFO - [34m[1mengine\trainer: [0magnostic_nms=False, amp=True, angle=1.0, augment=False, auto_augment=randaugment, batch=-1, bgr=0.0, box=7.5, cache=False, cfg=None, channels_last=None, classes=None, close_mosaic=15, cls=0.5, cls_pw=0.0, cls_remap=True, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=D:\ËÄÉÊ†∏2\outfit-analyzer\data\yolo\data.yaml, degrees=0.0, deterministic=True, device=0, dfl=1.5, dgrad=0.5, dis=6.0, distill_model=None, dlam=1.0, dlog=1.0, dnn=False, dropout=0.0, dynamic=False, embed=None, epochs=1, erasing=0.4, exist_ok=False, fliplr=0.5, flipud=0.0, format=torchscript, fraction=1.0, freeze=None, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, imgsz=960, iou=0.7, kobj=1.0, line_width=None, lr0=0.001, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=D:\ËÄÉÊ†∏2\outfit-analyzer\yolo26n.pt, momentum=0.937, mosaic=1.0, multi_scale=0.0, name=fashion_yolo26n-8, nbs=64, nms=None, opset=None, optimize=False, optimizer=auto, overlap_mask=True, patience=1, perspective=0.0, plots=True, pose=12.0, pretrained=True, profile=False, project=D:\ËÄÉÊ†∏2\outfit-analyzer\runs\detect, quantize=None, rect=False, resume=False, retina_masks=False, rle=1.0, save=True, save_conf=False, save_crop=False, save_dir=D:\ËÄÉÊ†∏2\outfit-analyzer\runs\detect\fashion_yolo26n-8, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=42, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=tracktrack.yaml, translate=0.1, val=True, verbose=True, vid_stride=1, visualize=False, warmup_bias_lr=0.1, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=4, workspace=None
+2026-11-05 14:50:40,178 - INFO - Overriding model.yaml nc=80 with nc=46
+2026-11-05 14:50:40,178 - INFO - 
+                   from  n    params  module                                       arguments                     
+2026-11-05 14:50:40,179 - INFO -   0                  -1  1       464  ultralytics.nn.modules.conv.Conv             [3, 16, 3, 2]                 
+2026-11-05 14:50:40,179 - INFO -   1                  -1  1      4672  ultralytics.nn.modules.conv.Conv             [16, 32, 3, 2]                
+2026-11-05 14:50:40,180 - INFO -   2                  -1  1      6640  ultralytics.nn.modules.block.C3k2            [32, 64, 1, False, 0.25]      
+2026-11-05 14:50:40,181 - INFO -   3                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+2026-11-05 14:50:40,182 - INFO -   4                  -1  1     26080  ultralytics.nn.modules.block.C3k2            [64, 128, 1, False, 0.25]     
+2026-11-05 14:50:40,182 - INFO -   5                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+2026-11-05 14:50:40,184 - INFO -   6                  -1  1     87040  ultralytics.nn.modules.block.C3k2            [128, 128, 1, True]           
+2026-11-05 14:50:40,185 - INFO -   7                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]              
+2026-11-05 14:50:40,189 - INFO -   8                  -1  1    346112  ultralytics.nn.modules.block.C3k2            [256, 256, 1, True]           
+2026-11-05 14:50:40,190 - INFO -   9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5, 3, True]        
+2026-11-05 14:50:40,192 - INFO -  10                  -1  1    249728  ultralytics.nn.modules.block.C2PSA           [256, 256, 1]                 
+2026-11-05 14:50:40,193 - INFO -  11                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+2026-11-05 14:50:40,193 - INFO -  12             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+2026-11-05 14:50:40,195 - INFO -  13                  -1  1    119808  ultralytics.nn.modules.block.C3k2            [384, 128, 1, True]           
+2026-11-05 14:50:40,195 - INFO -  14                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+2026-11-05 14:50:40,196 - INFO -  15             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+2026-11-05 14:50:40,198 - INFO -  16                  -1  1     34304  ultralytics.nn.modules.block.C3k2            [256, 64, 1, True]            
+2026-11-05 14:50:40,198 - INFO -  17                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+2026-11-05 14:50:40,198 - INFO -  18            [-1, 13]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+2026-11-05 14:50:40,200 - INFO -  19                  -1  1     95232  ultralytics.nn.modules.block.C3k2            [192, 128, 1, True]           
+2026-11-05 14:50:40,201 - INFO -  20                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+2026-11-05 14:50:40,201 - INFO -  21            [-1, 10]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+2026-11-05 14:50:40,206 - INFO -  22                  -1  1    463104  ultralytics.nn.modules.block.C3k2            [384, 256, 1, True, 0.5, True]
+2026-11-05 14:50:40,216 - INFO -  23        [16, 19, 22]  1    259116  ultralytics.nn.modules.head.Detect           [46, 1, True, [64, 128, 256]] 
+2026-11-05 14:50:40,411 - INFO - YOLO26n summary: 260 layers, 2,521,740 parameters, 2,521,740 gradients, 6.0 GFLOPs
+2026-11-05 14:50:40,411 - INFO - 
+2026-11-05 14:50:40,426 - INFO - Remapped 2/46 cls head rows from pretrained weights by class name
+2026-11-05 14:50:40,444 - INFO - Transferred 708/708 items from pretrained weights
+2026-11-05 14:50:40,548 - INFO - [34m[1mAMP: [0mrunning Automatic Mixed Precision (AMP) checks...
+2026-11-05 14:50:41,143 - INFO - [34m[1mAMP: [0mchecks passed ‚úÖ
+2026-11-05 14:50:41,336 - WARNING - WARNING [34m[1mtrain: [0mSlow image access detected (ping: 0.2¬±0.1 ms, read: 30.9¬±40.6 MB/s, size: 67.1 KB). Use local storage instead of remote/mounted storage for better performance. See https://docs.ultralytics.com/guides/model-training-tips
+2026-11-05 14:50:47,694 - INFO - [34m[1mAutoBatch: [0mComputing optimal batch size for imgsz=960 at 60.0% GPU memory utilization.
+2026-11-05 14:50:47,697 - INFO - [34m[1mAutoBatch: [0mCUDA:0 (NVIDIA GeForce RTX 5060 Laptop GPU) 7.96G total, 0.12G reserved, 6.76G available
+2026-11-05 14:50:47,697 - INFO -       Params      GFLOPs GPU_mem (GiB)  forward (ms) backward (ms)                   input                  output
+2026-11-05 14:50:48,497 - INFO -      2555756       14.18         0.609           156         459.2        (1, 3, 960, 960)                    list
+2026-11-05 14:50:48,820 - INFO -      2555756       28.36         1.175           106         138.6        (2, 3, 960, 960)                    list
+2026-11-05 14:50:49,179 - INFO -      2555756       56.72         2.329         104.4         162.5        (4, 3, 960, 960)                    list
+2026-11-05 14:50:49,611 - INFO -      2555756       113.4         4.575         144.9           165        (8, 3, 960, 960)                    list
+2026-11-05 14:50:53,896 - INFO -      2555756       226.9         9.259         111.8          3954       (16, 3, 960, 960)                    list
+2026-11-05 14:50:54,048 - INFO - [34m[1mAutoBatch: [0mUsing batch-size 7 for CUDA:0 4.01G/6.76G (59%) ‚úÖ
+2026-11-05 14:50:54,497 - INFO - [34m[1mtrain: [0mFast image access ‚úÖ (ping: 0.3¬±0.2 ms, read: 84.9¬±86.3 MB/s, size: 70.1 KB)
+2026-11-05 14:51:03,675 - INFO - [34m[1mval: [0mFast image access ‚úÖ (ping: 0.3¬±0.0 ms, read: 119.4¬±45.2 MB/s, size: 75.5 KB)
+2026-11-05 14:51:03,888 - INFO - [34m[1moptimizer:[0m 'optimizer=auto' found, ignoring 'lr0=0.001' and determining best 'optimizer' and 'lr0' automatically... 
+2026-11-05 14:51:06,443 - INFO - [34m[1moptimizer:[0m AdamW(lr=0.0002, momentum=0.9) with parameter groups 114 weight(decay=0.0), 126 weight(decay=0.0004921875), 126 bias(decay=0.0)
+2026-11-05 14:51:07,727 - INFO - Plotting labels to D:\ËÄÉÊ†∏2\outfit-analyzer\runs\detect\fashion_yolo26n-8\labels.jpg... 
+2026-11-05 14:51:08,300 - INFO - Using 45623 train, 1158 val images for fraction=1.0 at imgsz=960
+Using 4 dataloader workers
+Logging results to [1mD:\ËÄÉÊ†∏2\outfit-analyzer\runs\detect\fashion_yolo26n-8[0m
+Starting training for 1 epochs...
+2026-11-05 14:51:08,306 - INFO - Closing dataloader mosaic
+2026-11-05 14:51:24,995 - INFO - 
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+2026-11-05 15:05:15,523 - INFO -                    all       1158       8781      0.541      0.318      0.316      0.222
+2026-11-05 15:05:16,380 - INFO - 
+1 epochs completed in 0.236 hours.
+2026-11-05 15:05:17,642 - INFO - Optimizer stripped from D:\ËÄÉÊ†∏2\outfit-analyzer\runs\detect\fashion_yolo26n-8\weights\last.pt, 5.5MB
+2026-11-05 15:05:17,877 - INFO - Optimizer stripped from D:\ËÄÉÊ†∏2\outfit-analyzer\runs\detect\fashion_yolo26n-8\weights\best.pt, 5.5MB
+2026-11-05 15:05:17,879 - INFO - 
+Validating D:\ËÄÉÊ†∏2\outfit-analyzer\runs\detect\fashion_yolo26n-8\weights\best.pt...
+2026-11-05 15:05:17,881 - INFO - Ultralytics 8.4.198 üöÄ Python-3.11.18 torch-2.7.1+cu128 CUDA:0 (NVIDIA GeForce RTX 5060 Laptop GPU, 8151MiB)
+2026-11-05 15:05:18,681 - INFO - YOLO26n summary (fused): 121 layers, 2,400,670 parameters, 0 gradients, 5.4 GFLOPs
+2026-11-05 15:05:29,453 - INFO -                    all       1158       8781       0.53      0.321      0.315      0.222
+2026-11-05 15:05:29,453 - INFO -          shirt, blouse        102        102      0.331      0.225      0.239      0.166
+2026-11-05 15:05:29,454 - INFO - top, t-shirt, sweatshirt        463        477      0.572      0.679      0.658      0.488
+2026-11-05 15:05:29,454 - INFO -                sweater         21         21          0          0     0.0525     0.0439
+2026-11-05 15:05:29,454 - INFO -               cardigan         12         12          0          0     0.0316      0.019
+2026-11-05 15:05:29,454 - INFO -                 jacket        179        183      0.461      0.858      0.655       0.55
+2026-11-05 15:05:29,454 - INFO -                   vest         21         22          1          0     0.0701     0.0552
+2026-11-05 15:05:29,454 - INFO -                  pants        313        314       0.64      0.863      0.863      0.719
+2026-11-05 15:05:29,454 - INFO -                 shorts        106        106      0.584       0.66      0.668      0.527
+2026-11-05 15:05:29,454 - INFO -                  skirt        162        162      0.426      0.716      0.577      0.507
+2026-11-05 15:05:29,454 - INFO -                   coat        103        104      0.386      0.702       0.56      0.456
+2026-11-05 15:05:29,454 - INFO -                  dress        506        508      0.697      0.909      0.904      0.734
+2026-11-05 15:05:29,454 - INFO -               jumpsuit         21         21      0.276      0.143     0.0964     0.0582
+2026-11-05 15:05:29,454 - INFO -                   cape          5          5          1          0     0.0229     0.0176
+2026-11-05 15:05:29,455 - INFO -                glasses        130        130      0.752      0.815      0.834      0.549
+2026-11-05 15:05:29,455 - INFO -                    hat         74         74      0.533      0.797      0.752      0.585
+2026-11-05 15:05:29,455 - INFO - headband, head covering, hair accessory        105        109       0.46      0.156      0.225      0.117
+2026-11-05 15:05:29,455 - INFO -                    tie          3          3      0.303          1      0.753      0.297
+2026-11-05 15:05:29,455 - INFO -                  glove         18         31       0.23     0.0645      0.139      0.114
+2026-11-05 15:05:29,455 - INFO -                  watch         82         84      0.603      0.326      0.348      0.191
+2026-11-05 15:05:29,455 - INFO -                   belt        159        164      0.501      0.335      0.329      0.183
+2026-11-05 15:05:29,455 - INFO -             leg warmer          7         14          0          0          0          0
+2026-11-05 15:05:29,455 - INFO -      tights, stockings         62        122      0.447      0.541      0.506      0.358
+2026-11-05 15:05:29,455 - INFO -                   sock         51         87       0.78      0.103      0.168     0.0964
+2026-11-05 15:05:29,455 - INFO -                   shoe        804       1566      0.688      0.859      0.871      0.626
+2026-11-05 15:05:29,455 - INFO -            bag, wallet        205        214      0.388      0.495      0.409      0.246
+2026-11-05 15:05:29,455 - INFO -                  scarf         48         48          1          0     0.0755     0.0409
+2026-11-05 15:05:29,455 - INFO -               umbrella          5          5      0.786      0.744      0.715      0.651
+2026-11-05 15:05:29,455 - INFO -                   hood         32         32      0.207     0.0312     0.0651     0.0396
+2026-11-05 15:05:29,455 - INFO -                 collar        208        218      0.385      0.472        0.4       0.23
+2026-11-05 15:05:29,455 - INFO -                  lapel        132        135      0.445      0.437      0.396      0.219
+2026-11-05 15:05:29,455 - INFO -              epaulette          7         14          1          0      0.117     0.0664
+2026-11-05 15:05:29,455 - INFO -                 sleeve        742       1442      0.698      0.816      0.829      0.584
+2026-11-05 15:05:29,455 - INFO -                 pocket        288        541      0.374      0.196      0.181     0.0907
+2026-11-05 15:05:29,456 - INFO -               neckline        895        929      0.518      0.587      0.568      0.314
+2026-11-05 15:05:29,456 - INFO -                 buckle         64         67      0.291      0.164      0.179     0.0938
+2026-11-05 15:05:29,456 - INFO -                 zipper        105        194      0.261     0.0206      0.031     0.0104
+2026-11-05 15:05:29,456 - INFO -               applique         28         61      0.219     0.0164     0.0272     0.0175
+2026-11-05 15:05:29,456 - INFO -                   bead         33        107      0.142     0.0374     0.0248     0.0129
+2026-11-05 15:05:29,456 - INFO -                    bow          5          6          1          0          0          0
+2026-11-05 15:05:29,456 - INFO -                 flower          6         37          1          0   0.000222   0.000156
+2026-11-05 15:05:29,456 - INFO -                 fringe         11         30          1          0   0.000686   0.000618
+2026-11-05 15:05:29,456 - INFO -                 ribbon          5          9          1          0          0          0
+2026-11-05 15:05:29,456 - INFO -                  rivet         55        143          1          0          0          0
+2026-11-05 15:05:29,456 - INFO -                 ruffle         59         76          0          0      0.059     0.0376
+2026-11-05 15:05:29,456 - INFO -                 sequin          7         13          1          0      0.107     0.0862
+2026-11-05 15:05:29,460 - INFO -                 tassel          7         39          0          0          0          0
+2026-11-05 15:05:29,461 - INFO - Speed: 0.4ms preprocess, 2.2ms inference, 0.0ms loss, 1.4ms postprocess per image
+2026-11-05 15:05:29,461 - INFO - Results saved to [1mD:\ËÄÉÊ†∏2\outfit-analyzer\runs\detect\fashion_yolo26n-8[0m

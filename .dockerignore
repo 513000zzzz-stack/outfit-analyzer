@@ -1,0 +1,12 @@
+*
+!*.py
+!requirements/
+!requirements/requirements.txt
+!requirements/requirements-worker.txt
+!requirements/requirements-ui.txt
+!.streamlit/
+!.streamlit/config.toml
+!outfit_api/
+!outfit_ui/
+!inference/
+**/__pycache__/

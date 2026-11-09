@@ -27,3 +27,20 @@ fashionpedia-attribute-annotations/
 # 压缩包和IDE配置
 *.zip
 .idea/
+
+# 第三阶段运行数据和开发环境
+storage/
+models/
+.venv/
+.pytest_cache/
+*.sqlite3
+*.db
+.env.*
+!.env.example
+
+# 本地临时文件与一次性脚本
+.tmp/
+.pydeps/
+_smoke.py
+_tmp_smoke/
+CANCELED
