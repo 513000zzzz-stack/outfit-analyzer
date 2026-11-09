@@ -9,7 +9,7 @@ from urllib.request import Request, urlopen
 from dotenv import load_dotenv
 
 
-PROJECT_DIR = Path(__file__).resolve().parent
+PROJECT_DIR = Path(r"D:\考核2\outfit-analyzer")
 def create_output_dir(base_dir):
     base_dir=Path(base_dir)
     if not base_dir.exists():
@@ -38,14 +38,13 @@ PROMPT = """请分析这张穿搭照片，用中文给出以下内容：
 """
 
 
-def analyze_outfit(image_file, output_dir=None, verbose=True):
+def analyze_outfit(image_file):
     image_file = Path(image_file)
-    base_dir = Path(output_dir) if output_dir else PROJECT_DIR / "runs" / "doubao" / image_file.stem
+    base_dir = PROJECT_DIR / "runs" / "doubao" / image_file.stem
     output_dir = create_output_dir(base_dir)
-    if verbose:
-        print(f"本次结果目录：{output_dir}")
+    print(f"本次结果目录：{output_dir}")
     ##读取项目密钥配置
-    load_dotenv(PROJECT_DIR / ".env", override=False)
+    load_dotenv(PROJECT_DIR / ".env", override=True)
     api_key = os.getenv("ARK_API_KEY", "").strip()
     model_name = os.getenv("ARK_MODEL", "").strip()
     if not api_key:
@@ -92,8 +91,7 @@ def analyze_outfit(image_file, output_dir=None, verbose=True):
     )
 
     ##直接发送HTTP请求，不使用第三方模型调用SDK
-    if verbose:
-        print("正在将照片发送给豆包分析……")
+    print("正在将照片发送给豆包分析……")
     started = perf_counter()
     try:
         with urlopen(request, timeout=120) as http_response:
@@ -137,12 +135,11 @@ def analyze_outfit(image_file, output_dir=None, verbose=True):
     (output_dir / "analysis.json").write_text(
         json.dumps(record, ensure_ascii=False, indent=2), encoding="utf-8"
     )
-    if verbose:
-        print("\n" + answer)
-        if finish_reason == "length":
-            print("\n回答达到长度上限，分析可能不完整。")
-        print(f"\n接口耗时：{elapsed:.2f}秒")
-        print(f"结果目录：{output_dir}")
+    print("\n" + answer)
+    if finish_reason == "length":
+        print("\n回答达到长度上限，分析可能不完整。")
+    print(f"\n接口耗时：{elapsed:.2f}秒")
+    print(f"结果目录：{output_dir}")
     return record
 
 

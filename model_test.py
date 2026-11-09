@@ -1,5 +1,4 @@
 import json
-import os
 from itertools import combinations
 from pathlib import Path
 
@@ -9,7 +8,7 @@ from PIL import Image, ImageDraw
 from ultralytics import YOLO
 
 
-PROJECT_DIR = Path(__file__).resolve().parent
+PROJECT_DIR = Path(r"D:\考核2\outfit-analyzer")
 #完整服饰类别，用于整套配色；46类检测结果仍然全部保留
 GARMENT_IDS = set(range(13))
 NEUTRAL_NAMES = {"黑色", "白色", "灰色"}
@@ -210,14 +209,10 @@ def build_text_report(report):
     return "\n".join(lines)
 
 
-def predicted_image(image_file, output_dir=None, device=0, verbose=True):
+def predicted_image(image_file, output_dir=None, device=0):
     ##检查输入并加载最佳模型
     image_file = Path(image_file)
-    bundled = PROJECT_DIR / "models" / "best.pt"
-    legacy = PROJECT_DIR / "runs" / "detect" / "fashion_yolo26n" / "weights" / "best.pt"
-    weight_file = Path(os.environ["YOLO_WEIGHTS"]) if os.getenv("YOLO_WEIGHTS") else (
-        bundled if bundled.is_file() else legacy
-    )
+    weight_file = PROJECT_DIR / "runs" / "detect" / "fashion_yolo26n" / "weights" / "best.pt"
     if not image_file.is_file():
         raise FileNotFoundError(f"找不到图片：{image_file}")
     if not weight_file.is_file():
@@ -227,8 +222,7 @@ def predicted_image(image_file, output_dir=None, device=0, verbose=True):
     else:
         base_dir = Path(output_dir)
     output_dir = create_output_dir(base_dir)
-    if verbose:
-        print(f"本次结果目录：{output_dir}")
+    print(f"本次结果目录：{output_dir}")
     model = YOLO(str(weight_file))
     result = model.predict(source=str(image_file), imgsz=960, conf=0.25, device=device, save=False, verbose=False)[0]
     original = result.orig_img
@@ -285,9 +279,8 @@ def predicted_image(image_file, output_dir=None, device=0, verbose=True):
     text = build_text_report(report)
     (output_dir / "analysis.txt").write_text(text, encoding="utf-8")
     save_palette(overall_palette, output_dir / "overall_palette.png")
-    if verbose:
-        print(text)
-        print(f"\n结果目录：{output_dir}")
+    print(text)
+    print(f"\n结果目录：{output_dir}")
     return report
 
 

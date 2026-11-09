@@ -1,9 +1,0 @@
-fastapi>=0.115,<1
-uvicorn>=0.34,<1
-python-multipart>=0.0.22,<1
-SQLAlchemy>=2.0,<2.1
-psycopg[binary]>=3.2,<4
-redis>=5,<8
-rq>=2.3,<3
-PyJWT>=2.10,<3
-Pillow>=11,<14
